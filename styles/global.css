@@ -1,0 +1,62 @@
+:root {
+    --bg-img: url("https://i.ibb.co/0BncBLf/background.jpg");
+    --title-font: 'Mansalva', sans-serif;
+    --title-color: #FFFFFF;
+    --general-font: 'Roboto', sans-serif;
+}
+
+
+
+/*  General   */
+
+html {
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: var(--bg-img);
+    background-size: 100vw;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+
+
+/*  Display   */
+
+.inactive {
+    display: none;
+}
+
+.container {
+    display: flex;
+}
+
+.c-vert {
+    flex-direction: column;
+}
+
+.c-center {
+    align-items: center;
+}
+
+.c-center-all {
+    align-items: center;
+    justify-content: center;
+}
+
+.c-center-se {
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.c-center-sb {
+    align-items: center;
+    justify-content: space-between;
+}
