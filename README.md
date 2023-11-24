@@ -1,2 +1,2 @@
-# todo-app
+# ToDo Master
 task manager for your daily duties
