@@ -1,0 +1,82 @@
+/*  Body  */
+body {
+    height: 100vh;
+}
+
+main {
+    height: 100vh;
+}
+
+
+
+/*  Titles  */
+
+h1 {
+    color: var(--title-color);
+    font-family: var(--title-font);
+    font-size: var(--title-size);
+    font-weight: 400;
+    margin-top: 3.5%;
+}
+
+
+
+/*  Main body  */
+
+#main-container {
+    background: var(--main-body-color);
+    width: 30rem;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+#main-container > h2 {
+    font-family: var(--general-font);
+    font-size: 2.8rem;
+    color: var(--general-font-color);
+}
+
+
+
+/*  Form   */
+
+#main-container > form {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#main-container label {
+    width: 100%;
+}
+
+#main-container input {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    color: var(--input-font-color);
+    background-color: var(--input-bg);
+}
+
+#main-container #btnSubmit {
+    width: 50%;
+    align-self: flex-end;
+    background-color: var(--button-color);
+    margin-bottom: 2rem;
+}
+
+
+
+/*  Other elements  */
+
+a {
+    font-size: 1.6rem;
+    margin: 2rem 0 1rem 0;
+    color: var(--button-color);
+}
+
+a:visited {
+    color: var(--button-color);
+}

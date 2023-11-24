@@ -1,8 +1,15 @@
 :root {
     --bg-img: url("https://i.ibb.co/0BncBLf/background.jpg");
+    --main-body-color: rgba(255, 255, 255, 0.5);
     --title-font: 'Mansalva', sans-serif;
     --title-color: #FFFFFF;
+    --title-size: 3.2rem;
     --general-font: 'Roboto', sans-serif;
+    --general-font-color: ##000814;
+    --input-font-color: #FFFFFF;
+    --input-bg: #404040;
+    --sep-line-white: 0.1rem solid rgba(255, 255, 255, 0.5);
+    --button-color: #0056A5;
 }
 
 
@@ -59,4 +66,18 @@ body {
 .c-center-sb {
     align-items: center;
     justify-content: space-between;
+}
+
+
+
+/*  Separators  */
+
+.line-80 {
+    border-bottom: var(--sep-line-white);
+    width: 80%;
+}
+
+.line-90 {
+    border-bottom: var(--sep-line-white);
+    width: 90%;
 }
