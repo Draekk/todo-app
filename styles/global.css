@@ -10,6 +10,8 @@
     --input-bg: #404040;
     --sep-line-white: 0.1rem solid rgba(255, 255, 255, 0.5);
     --button-color: #0056A5;
+    --shadow: rgba(0,0,0,0.5);
+    --shadow-white: rgba(255,255,255,0.5);
 }
 
 
@@ -40,7 +42,7 @@ body {
 /*  Display   */
 
 .inactive {
-    display: none;
+    display: none!important;
 }
 
 .container {

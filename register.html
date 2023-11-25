@@ -53,27 +53,40 @@
             name="username"
             placeholder="Username"
           />
-          <label for="inputPassword" class="container">
-            <input
-              type="password"
-              id="inputPassword"
-              name="password"
-              placeholder="Password"
-            />
-          </label>
-          <label for="inputPasswordRepeat" class="container">
-            <input
-              type="password"
-              id="inputPasswordRepeat"
-              name="passwordRepeat"
-              placeholder="Repeat password"
-            />
-          </label>
-          <input type="submit" id="btnSubmit" value="Register" />
-        </form>
+          <label for="inputPassword" class="container"></label>
+						<input
+							type="password"
+							id="inputPassword"
+							name="password"
+							placeholder="Password"
+						/>
+						<label for="inputPasswordRepeat" class="container"></label>
+						<input
+						type="password"
+						id="inputPasswordRepeat"
+						name="passwordRepeat"
+						placeholder="Repeat password"
+						/>
+						<input type="submit" id="btnSubmit" value="Register" />
+						<div class="container">
+							<div class="container c-vert">
+								<i title="show password" class="showP ico fa-solid fa-eye"></i>
+								<i title="hide password" class=" hideP inactive ico fa-solid fa-eye-slash"></i>
+							</div>
+							<div class="container c-vert">
+								<i title="show password" class="showPR ico fa-solid fa-eye"></i>
+								<i title="hide password" class=" hidePR inactive ico fa-solid fa-eye-slash"></i>
+							</div>
+						</div>
+					</form>
         <div class="line-80"></div>
         <a href="login.html">Do you have an account? Sign in!</a>
       </section>
     </main>
   </body>
+  <script
+    src="https://kit.fontawesome.com/4dba61bd48.js"
+    crossorigin="anonymous"
+  ></script>
+	<script src="./scripts/show-hide-password.js"></script>
 </html>
