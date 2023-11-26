@@ -56,6 +56,10 @@ h1 {
     z-index: 9;
 }
 
+#nav-bar ul > li:first-child {
+    cursor: pointer;
+}
+
 #nav-bar picture {
     overflow: hidden;
     background-color: var(--title-color);
@@ -187,4 +191,10 @@ h1 {
 
 /*  Other elements  */
 
-
+#disable-screen {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: var(--shadow-white);
+}
