@@ -12,6 +12,9 @@
     --button-color: #0056A5;
     --shadow: rgba(0,0,0,0.5);
     --shadow-white: rgba(255,255,255,0.5);
+    --profile-bg-color: #C8B6FF;
+    --add-button-color: #00FF0A;
+    --delete-button-color: #F00;
 }
 
 
@@ -35,6 +38,14 @@ body {
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: center;
+}
+
+a:visited {
+    color: var(--button-color);
+}
+
+button {
+    cursor: pointer;
 }
 
 
@@ -69,6 +80,10 @@ body {
 
 .c-center-sb {
     align-items: center;
+    justify-content: space-between;
+}
+
+.c-start-sb {
     justify-content: space-between;
 }
 
