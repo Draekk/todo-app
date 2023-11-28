@@ -52,7 +52,7 @@ function isCompleted() {
   for (const element in data) {
     if (data[element] === "" || !samePassword()) {
       console.log(data);
-			$btnSubmit.disabled = true;
+      $btnSubmit.disabled = true;
       return true;
     }
   }
@@ -62,11 +62,11 @@ function isCompleted() {
 
 function samePassword() {
   if ($password.value !== $passwordR.value) {
-    $passwordR.style.border = "0.3rem solid red";
-		return false;
+    $passwordR.style.outline = "rgba(255,0,0,0.8) solid 0.2rem";
+    return false;
   } else {
-    $passwordR.style.border = "none";
+    $passwordR.style.outline = "inherit";
     data.pass = $password.value;
-		return true;
+    return true;
   }
 }

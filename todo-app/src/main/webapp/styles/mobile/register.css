@@ -3,7 +3,9 @@ body {
     height: 100vh;
 }
 
-
+main {
+    height: 100vh;
+}
 
 /*  Titles  */
 
@@ -12,10 +14,7 @@ h1 {
     font-family: var(--title-font);
     font-size: var(--title-size);
     font-weight: 400;
-    margin-bottom: 2rem;
 }
-
-
 
 /*  Main body  */
 
@@ -23,21 +22,18 @@ h1 {
     background: var(--main-body-color);
     width: 30rem;
     border-radius: 1rem;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1.5rem;
 }
 
-#main-container > h2 {
+#main-container>h2 {
     font-family: var(--general-font);
     font-size: 2.8rem;
     color: var(--general-font-color);
-    margin-bottom: 1rem;
 }
-
-
 
 /*  Form   */
 
-#main-container > form {
+#main-container>form {
     width: 100%;
     margin-top: 1rem;
 }
@@ -48,7 +44,7 @@ h1 {
 
 #main-container input {
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-size: 1.6rem;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
@@ -57,10 +53,15 @@ h1 {
     background-color: var(--input-bg);
 }
 
+#main-container input:focus {
+    outline: var(--button-color) solid 0.2rem!important;
+}
+
 #main-container #btnSubmit {
     width: 50%;
     align-self: flex-end;
     background-color: var(--button-color);
+    cursor: pointer;
 }
 
 #main-container #btnSubmit:disabled {
@@ -72,19 +73,23 @@ h1 {
     font-size: 1.2rem;
     color: var(--shadow-white);
     cursor: pointer;
-    
 }
 
 #main-container .showP {
-    transform: translate(25rem, -7.9rem);
+    transform: translate(25rem, -10.9rem);
 }
 
 #main-container .hideP {
-    transform: translate(25rem, -7.9rem);
+    transform: translate(25rem, -10.9rem);
 }
 
+#main-container .showPR {
+    transform: translate(25rem, -6.9rem);
+}
 
-
+#main-container .hidePR {
+    transform: translate(25rem, -6.9rem);
+}
 
 /*  Other elements  */
 
@@ -98,7 +103,6 @@ a:visited {
     color: var(--button-color);
 }
 
-#main-container > .line-80 {
+#main-container>.line-80 {
     margin-top: 1rem;
 }
-
