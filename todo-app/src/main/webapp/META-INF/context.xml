@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/todo-app"/>
+<Context path="/todo-app">
+  <Resource auth="Container" driverClassName="org.postgresql.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="todo-master" password="E*bAgFg3FcE5aaCbEe3bDe-E*efcEg4A" type="javax.sql.DataSource" url="jdbc:postgresql://monorail.proxy.rlwy.net:32742/railway?serverTimezone=UTC" username="postgres"/>
+</Context>

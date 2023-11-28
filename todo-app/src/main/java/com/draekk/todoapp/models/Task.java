@@ -1,15 +1,13 @@
 
 package com.draekk.todoapp.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
+import java.io.Serializable;
+import javax.persistence.*;
 
 @Entity
-public class Task {
+@Table(name = "tasks")
+public class Task implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
