@@ -63,6 +63,10 @@ h1 {
     background-color: var(--button-color);
 }
 
+#main-container #btnSubmit:disabled {
+    background-color: var(--disabled-button-color);
+}
+
 #main-container .ico {
     position: absolute;
     font-size: 1.2rem;

@@ -13,11 +13,8 @@ let data = {
   username: "",
   pass: "",
 };
-let isOk = false;
-let okPass = false;
 
 $btnSubmit.disabled = true;
-console.log($btnSubmit.disabled);
 
 $name.addEventListener("input", () => {
   data.name = $name.value;
