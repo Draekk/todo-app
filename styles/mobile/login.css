@@ -57,6 +57,10 @@ h1 {
     background-color: var(--input-bg);
 }
 
+#main-container input:focus {
+    outline: var(--button-color) solid 0.2rem!important;
+}
+
 #main-container #btnSubmit {
     width: 50%;
     align-self: flex-end;
