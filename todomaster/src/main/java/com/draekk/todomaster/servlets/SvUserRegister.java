@@ -1,8 +1,8 @@
 
 package com.draekk.todomaster.servlets;
 
+import com.draekk.todomaster.controllers.GeneralController;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,23 +11,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet(name = "SvUserRegister", urlPatterns = {"/SvUserRegister"})
 public class SvUserRegister extends HttpServlet {
+    
+    GeneralController gc = new GeneralController();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SvUserRegister</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SvUserRegister at " + request.getContextPath() + "</h1>");
-            out.println("<h1>funciona</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+                
+        
     }
 
     @Override

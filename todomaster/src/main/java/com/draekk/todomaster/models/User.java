@@ -2,6 +2,7 @@
 package com.draekk.todomaster.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
+import javax.persistence.CascadeType;
 
 @Entity
 @Table(name = "users")
@@ -31,19 +33,19 @@ public class User implements Serializable {
     private String username;
     private String password;
     
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Task> tasks;
 
     public User() {
     }
 
-    public User(String name, String lastName, String email, String username, String password, List<Task> tasks) {
+    public User(String name, String lastName, String email, String username, String password) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.tasks = tasks;
+        this.tasks = new ArrayList<>();
     }
 
     public User(long id, String name, String lastName, String email, String username, String password, List<Task> tasks) {
