@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet(name = "SvUserRegister", urlPatterns = {"/SvUserRegister"})
 public class SvUserRegister extends HttpServlet {
@@ -30,6 +31,9 @@ public class SvUserRegister extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+        
+        
+        
         processRequest(request, response);
     }
 
@@ -38,4 +42,9 @@ public class SvUserRegister extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    
+    public boolean isActiveSession(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        return session != null;
+    }
 }
