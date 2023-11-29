@@ -43,8 +43,4 @@ public class SvUserRegister extends HttpServlet {
     }// </editor-fold>
 
     
-    public boolean isActiveSession(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        return session != null;
-    }
 }
