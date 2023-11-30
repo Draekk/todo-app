@@ -2,6 +2,7 @@
 package com.draekk.todomaster.persistence;
 
 import com.draekk.todomaster.models.User;
+import java.util.List;
 
 public class PersistenceController {
     
@@ -10,6 +11,10 @@ public class PersistenceController {
 
     public void createUser(User user) {
         userJC.create(user);
+    }
+    
+    public List<User> getUserList(){
+        return userJC.findUserEntities();
     }
     
 }

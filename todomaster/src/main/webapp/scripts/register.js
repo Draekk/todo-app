@@ -70,3 +70,13 @@ function samePassword() {
     return true;
   }
 }
+
+//------------------------------------------------------------
+
+const url = window.location.search;
+const parameters = new URLSearchParams(url);
+const message = parameters.get('message');
+
+if(message != null) {
+  alert(message);
+}

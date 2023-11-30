@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+HttpSession mySession = request.getSession(false);
+if(mySession.getAttribute("user") != null){
+
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -102,3 +108,11 @@
   ></script>
   <script src="./scripts/index.js"></script>
 </html>
+
+<%
+
+  } else {
+    response.sendRedirect("login.html");
+}
+
+%>
