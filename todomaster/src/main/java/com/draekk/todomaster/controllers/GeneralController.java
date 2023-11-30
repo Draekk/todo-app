@@ -5,6 +5,7 @@ import com.draekk.todomaster.models.User;
 import com.draekk.todomaster.persistence.PersistenceController;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class GeneralController {
     
@@ -12,8 +13,30 @@ public class GeneralController {
 
     public User processUser(String name, String lastName, String email, String username, String password) {
 
+        String encryptedPassword = encryptPassword(password);
         
+        if(encryptedPassword != null && !isExistingEmail(email)) {
+            User user = new User(name, lastName, email, username, encryptedPassword);
+            pc.createUser(user);
+            return user;
+        }
+        return null;
 
+    }
+    
+    public List<User> getUserList(){
+        return pc.getUserList();
+    }
+    
+    private boolean isExistingEmail(String email) {
+        List<User> users = getUserList();
+        
+        for(User u : users) {
+            if(u.getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
     }
 
     private String encryptPassword(String password) {
