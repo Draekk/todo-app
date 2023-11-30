@@ -106,6 +106,9 @@ if(mySession.getAttribute("username") != null){
     src="https://kit.fontawesome.com/4dba61bd48.js"
     crossorigin="anonymous"
   ></script>
+  <script>
+      var username = "<%=mySession.getAttribute("username")%>";
+  </script>
   <script src="./scripts/index.js"></script>
 </html>
 
