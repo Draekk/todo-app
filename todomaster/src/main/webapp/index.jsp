@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 HttpSession mySession = request.getSession(false);
-if(mySession.getAttribute("user") != null){
+if(mySession.getAttribute("username") != null){
 
 %>
 <!DOCTYPE html>

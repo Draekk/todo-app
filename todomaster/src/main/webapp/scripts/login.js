@@ -1,16 +1,16 @@
-const $username = document.getElementById("inputUsername");
+const $email = document.getElementById("inputEmail");
 const $password = document.getElementById("inputPassword");
 const $btnSubmit = document.getElementById("btnSubmit");
 
 let data = {
-  username: "",
+  email: "",
   pass: "",
 };
 
 $btnSubmit.disabled = true;
 
-$username.addEventListener("input", () => {
-  data.username = $username.value;
+$email.addEventListener("input", () => {
+  data.email = $email.value;
   $btnSubmit.disabled = isCompleted();
 });
 

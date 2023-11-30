@@ -15,7 +15,7 @@ public class GeneralController {
 
         String encryptedPassword = encryptPassword(password);
         
-        if(encryptedPassword != null && !isExistingEmail(email)) {
+        if(encryptedPassword != null && isExistingEmail(email) == null) {
             User user = new User(name, lastName, email, username, encryptedPassword);
             pc.createUser(user);
             return user;
@@ -28,15 +28,36 @@ public class GeneralController {
         return pc.getUserList();
     }
     
-    private boolean isExistingEmail(String email) {
+    public User getLoginUser(String email, String password) {
+
+        String encryptedLoginPassword = encryptPassword(password);
+        
+        User user = isExistingEmail(email);
+            
+        if(user != null && user.getPassword().equals(encryptedLoginPassword)){
+            return user;
+        }
+        return null;
+    }
+    
+    private User isExistingEmail(String email) {
         List<User> users = getUserList();
         
         for(User u : users) {
             if(u.getEmail().equals(email)){
-                return true;
+                return u;
             }
         }
-        return false;
+        return null;
+    }
+    
+    private User isExistingEmail(String email, List<User> users) {
+        for(User u : users) {
+            if(u.getEmail().equals(email)){
+                return u;
+            }
+        }
+        return null;
     }
 
     private String encryptPassword(String password) {
@@ -55,5 +76,7 @@ public class GeneralController {
             return null;
         }
     }
+
+    
     
 }
