@@ -54,6 +54,7 @@ h1 {
     min-height: 4rem;
     height: fit-content;
     z-index: 9;
+    box-shadow: 0rem 0rem 1rem 0.2rem var(--shadow-light);
 }
 
 #nav-bar ul > li:first-child {
@@ -78,6 +79,10 @@ h1 {
 
 #nav-bar p {
     margin: 0 0.5rem;
+    overflow: hidden;
+    max-width: 9rem;
+    min-width: 5rem;
+    text-align: right;
 }
 
 #nav-bar ul > li:last-child {

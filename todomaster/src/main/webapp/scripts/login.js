@@ -1,20 +1,22 @@
-const $username = document.getElementById("inputUsername");
+const $email = document.getElementById("inputEmail");
 const $password = document.getElementById("inputPassword");
 const $btnSubmit = document.getElementById("btnSubmit");
 
 let data = {
-  username: "",
-  pass: "",
+  email: $email.value,
+  pass: $password.value,
 };
 
 $btnSubmit.disabled = true;
 
-$username.addEventListener("input", () => {
-  data.username = $username.value;
+$email.addEventListener("input", () => {
+  data.email = $email.value;
   $btnSubmit.disabled = isCompleted();
 });
 
+
 $password.addEventListener("input", () => {
+  data.email = $email.value;
   data.pass = $password.value;
   $btnSubmit.disabled = isCompleted();
 });
@@ -28,4 +30,14 @@ function isCompleted() {
   }
   $btnSubmit.disabled = false;
   return false;
+}
+
+//------------------------------------------------------------
+
+const url = window.location.search;
+const parameters = new URLSearchParams(url);
+const message = parameters.get('message');
+
+if(message != null) {
+  alert(message);
 }

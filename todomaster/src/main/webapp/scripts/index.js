@@ -15,3 +15,9 @@ function toggleInactive() {
         $disableScreen.classList.add("inactive");
     }
 }
+
+
+console.log(username);
+const $username = document.querySelector('#nav-bar > ul > li > p');
+
+$username.innerHTML = username;
