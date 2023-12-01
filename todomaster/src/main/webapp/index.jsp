@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-HttpSession mySession = request.getSession(false);
+HttpSession mySession = request.getSession(true);
 if(mySession.getAttribute("username") != null){
 
 %>
@@ -40,7 +40,7 @@ if(mySession.getAttribute("username") != null){
 						</li>
 						<li class="inactive container c-vert c-center-all">
 							<div class="line-80"></div>
-							<a href="login.html">Log out</a>
+							<a href="SvLogout">Log out</a>
 						</li>
 					</ul>
 				</nav>
@@ -50,6 +50,7 @@ if(mySession.getAttribute("username") != null){
 				<div class="container c-vert c-center-all">
 					<input type="text" name="newTask" id="newTask" placeholder="Create new Task">
 					<ul id="slider" class="container c-vert c-center-se">
+						<!--
 						<li class="task container c-center-sb">
 							<div class="container">
 								<input type="checkbox" name="checkbox" id="taskId">
@@ -64,7 +65,6 @@ if(mySession.getAttribute("username") != null){
 								</button>
 							</div>
 						</li>
-						<!--
 						<li class="task container c-center-sb">
 							<div class="container c-center-all">
 								<input type="checkbox" name="" id="">
