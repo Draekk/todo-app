@@ -1,6 +1,7 @@
 
 package com.draekk.todomaster.persistence;
 
+import com.draekk.todomaster.models.Task;
 import com.draekk.todomaster.models.User;
 import java.util.List;
 
@@ -15,6 +16,16 @@ public class PersistenceController {
     
     public List<User> getUserList(){
         return userJC.findUserEntities();
+    }
+
+    public Task createTask(Task task) {
+
+        return taskJC.create(task);
+
+    }
+
+    public List<Task> getTaskList() {
+        return taskJC.findTaskEntities();
     }
     
 }

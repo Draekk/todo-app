@@ -110,6 +110,7 @@ if(mySession.getAttribute("username") != null){
       var username = "<%=mySession.getAttribute("username")%>";
   </script>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/task-logic.js"></script>
 </html>
 
 <%

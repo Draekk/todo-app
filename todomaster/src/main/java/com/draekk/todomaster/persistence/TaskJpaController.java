@@ -37,8 +37,9 @@ public class TaskJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Task task) {
+    public Task create(Task task) {
         EntityManager em = null;
+        Task createdTask = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
@@ -48,6 +49,8 @@ public class TaskJpaController implements Serializable {
                 task.setUser(user);
             }
             em.persist(task);
+            em.flush();
+            createdTask = em.find(Task.class, task.getId());
             if (user != null) {
                 user.getTasks().add(task);
                 user = em.merge(user);
@@ -58,6 +61,7 @@ public class TaskJpaController implements Serializable {
                 em.close();
             }
         }
+        return createdTask;
     }
 
     public void edit(Task task) throws NonexistentEntityException, Exception {
