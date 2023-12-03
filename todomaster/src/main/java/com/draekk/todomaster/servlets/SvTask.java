@@ -5,6 +5,8 @@ import com.draekk.todomaster.controllers.GeneralController;
 import com.draekk.todomaster.models.Task;
 import com.draekk.todomaster.models.User;
 import jakarta.json.Json;
+import jakarta.json.JsonArray;
+import jakarta.json.JsonArrayBuilder;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonObjectBuilder;
 import java.io.BufferedReader;
@@ -16,6 +18,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @WebServlet(name = "SvTask", urlPatterns = {"/SvTask"})
 public class SvTask extends HttpServlet {
@@ -42,7 +45,23 @@ public class SvTask extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        processRequest(request, response);
+        
+        try {
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json");
+            System.out.println("saludos desde el doGet");
+            User user = (User)request.getSession().getAttribute("user");
+            List<Task> taskList = gc.getTaskList(user.getId());
+            
+            if(taskList != null){
+                sendTaskListResponse(response, taskList);
+            } else {
+                sendFailedResponse(response, "Task list is empty");
+            }
+        } catch (Exception e) {
+            sendErrorResponse(response, e);
+        }
+        
     }
 
     @Override
@@ -65,7 +84,7 @@ public class SvTask extends HttpServlet {
             if(newTask != null) {
                 sendTaskCreatedResponse(response, newTask);
             } else {
-                sendTaskCreationFailedResponse(response);
+                sendFailedResponse(response, "Task creation failure");
             }
             
         } catch (Exception e) {
@@ -104,10 +123,10 @@ public class SvTask extends HttpServlet {
         response.getWriter().println(taskJson.toString());
     }
     
-    private void sendTaskCreationFailedResponse(HttpServletResponse response)
+    private void sendFailedResponse(HttpServletResponse response, String message)
         throws IOException {
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        response.getWriter().println("Failed to create task");
+        response.getWriter().println(message);
     }
     
     private void sendErrorResponse(HttpServletResponse response, Exception e)
@@ -116,4 +135,19 @@ public class SvTask extends HttpServlet {
         response.getWriter().println("Error: " + e.getMessage());
     }
     
+    private void sendTaskListResponse(HttpServletResponse response, List<Task> taskList)
+        throws IOException {
+        JsonObjectBuilder builder = Json.createObjectBuilder();
+        JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
+        for(Task t : taskList) {
+            builder.add("id", t.getId());
+            builder.add("description", t.getDescription());
+            builder.add("isCompleted", t.isIsCompleted());
+            JsonObject taskJson = builder.build();
+            arrayBuilder.add(taskJson);
+        }
+        JsonArray taskListJson = arrayBuilder.build();
+        
+        response.getWriter().write(taskListJson.toString());
+    }
 }

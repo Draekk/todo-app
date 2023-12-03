@@ -140,6 +140,7 @@ h1 {
 #slider {
     width: 98%;
     overflow: scroll;
+    max-height: 70%;
 }
 
 #slider::-webkit-scrollbar {

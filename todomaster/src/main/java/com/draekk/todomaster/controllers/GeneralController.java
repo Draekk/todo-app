@@ -6,6 +6,7 @@ import com.draekk.todomaster.models.User;
 import com.draekk.todomaster.persistence.PersistenceController;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GeneralController {
@@ -108,5 +109,17 @@ public class GeneralController {
             }
         }
         return null;
+    }
+
+    public List<Task> getTaskList(long id) {
+        List<Task> completeTaskList = pc.getTaskList();
+        List<Task> userTaskList = new ArrayList<>();
+        
+        for(Task t : completeTaskList){
+            if(t.getUser().getId() == id){
+                userTaskList.add(t);
+            }
+        }
+        return userTaskList;
     }
 }
