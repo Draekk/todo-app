@@ -1,10 +1,12 @@
 
 package com.draekk.todomaster.controllers;
 
+import com.draekk.todomaster.models.Task;
 import com.draekk.todomaster.models.User;
 import com.draekk.todomaster.persistence.PersistenceController;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GeneralController {
@@ -76,7 +78,48 @@ public class GeneralController {
             return null;
         }
     }
+    
+    //-------------------------------TASK
 
+    public Task createTask(String description, User user) {
+
+        Task task = new Task(description, false, user);
+        return pc.createTask(task);
+    }
+
+    public List<Task> getTaskList(){
+        return pc.getTaskList();
+    }
     
+    private Task isExistingTask(String description) {
+        List<Task> tasks = getTaskList();
+        
+        for(Task t : tasks) {
+            if(t.getDescription().equals(description)){
+                return t;
+            }
+        }
+        return null;
+    }
     
+    private Task isExistingTask(String description, List<Task> tasks) {
+        for(Task t : tasks) {
+            if(t.getDescription().equals(description)){
+                return t;
+            }
+        }
+        return null;
+    }
+
+    public List<Task> getTaskList(long id) {
+        List<Task> completeTaskList = pc.getTaskList();
+        List<Task> userTaskList = new ArrayList<>();
+        
+        for(Task t : completeTaskList){
+            if(t.getUser().getId() == id){
+                userTaskList.add(t);
+            }
+        }
+        return userTaskList;
+    }
 }

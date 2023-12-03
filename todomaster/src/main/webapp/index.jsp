@@ -47,7 +47,7 @@ if(mySession.getAttribute("username") != null){
 				<button id="btnAddTask">
 					<i class="ico fa-solid fa-plus"></i>
 				</button>
-				<div class="container c-vert c-center-all">
+				<div class="container c-vert c-center">
 					<input type="text" name="newTask" id="newTask" placeholder="Create new Task">
 					<ul id="slider" class="container c-vert c-center-se">
 						<!--
@@ -65,38 +65,8 @@ if(mySession.getAttribute("username") != null){
 								</button>
 							</div>
 						</li>
-						<li class="task container c-center-sb">
-							<div class="container c-center-all">
-								<input type="checkbox" name="" id="">
-								<label for="">Task name</label>
-							</div>
-							<div class="container c-center-sb">
-								<button id="btnEdit"></button>
-								<button id="btnDelete"></button>
-							</div>
-						</li>
-						<li class="task container c-center-sb">
-							<div class="container c-center-all">
-								<input type="checkbox" name="" id="">
-								<label for="">Task name</label>
-							</div>
-							<div class="container c-center-sb">
-								<button id="btnEdit"></button>
-								<button id="btnDelete"></button>
-							</div>
-						</li>
-						<li class="task container c-center-sb">
-							<div class="container c-center-all">
-								<input type="checkbox" name="" id="">
-								<label for="">Task name</label>
-							</div>
-							<div class="container c-center-sb">
-								<button id="btnEdit"></button>
-								<button id="btnDelete"></button>
-							</div>
-						</li>
+					-->
 					</ul>
-				-->
 				</div>
 				<div id="disable-screen" class="inactive"></div>
       </section>
@@ -110,6 +80,7 @@ if(mySession.getAttribute("username") != null){
       var username = "<%=mySession.getAttribute("username")%>";
   </script>
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/task-logic.js"></script>
 </html>
 
 <%
