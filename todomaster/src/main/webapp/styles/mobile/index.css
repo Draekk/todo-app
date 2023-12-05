@@ -119,6 +119,7 @@ h1 {
 
 #main-container > div:nth-child(3) {
     width: 90%;
+    max-height: 89%;
 }
 
 #main-container > div:nth-child(3) > input {
@@ -131,6 +132,11 @@ h1 {
     border: none;
     color: var(--input-font-color);
     background-color: var(--input-bg);
+    padding-right: 3rem;
+}
+
+#newTask:focus {
+    outline: var(--button-color) solid 0.2rem;
 }
 
 
@@ -140,7 +146,6 @@ h1 {
 #slider {
     width: 98%;
     overflow: scroll;
-    max-height: 70%;
 }
 
 #slider::-webkit-scrollbar {
@@ -156,6 +161,7 @@ h1 {
     border: none;
     color: var(--input-font-color);
     background-color: var(--input-bg);
+    box-shadow: 0rem 0.3rem 0.3rem 0.01rem var(--shadow-light);
 }
 
 #slider .task > div:first-child {
@@ -164,19 +170,22 @@ h1 {
 }
 
 #slider .task > div:first-child > input {
-    width: 2rem;
+    min-width: 1.7rem;
+    min-height: 1.7rem;
 }
 
 #slider .task > div:first-child > label {
     margin-left: 0.5rem;
+    overflow: hidden;
 }
 
-#slider .task > div:last-child {
+/* #slider .task > div:last-child {
     width: 22%;
     margin-left: 0.5rem;
-}
+} */
 
-#slider #btnEdit, #slider #btnDelete {
+/* #slider .task > div:last-child > button:first-child, */
+#slider .task > div:last-child > button:last-child {
     width: 2rem;
     height: 2rem;
     border-radius: 0.5rem;
@@ -184,11 +193,11 @@ h1 {
     color: var(--input-font-color);
 }
 
-#slider #btnEdit {
+/* #slider .task > div:last-child > button:first-child {
     background-color: var(--button-color);
-}
+} */
 
-#slider #btnDelete {
+#slider .task > div:last-child > button:last-child {
     background-color: var(--delete-button-color);
 }
 
@@ -202,5 +211,4 @@ h1 {
     width: inherit;
     height: inherit;
     border-radius: inherit;
-    background: var(--shadow-white);
 }

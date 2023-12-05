@@ -49,7 +49,7 @@ if(mySession.getAttribute("username") != null){
 				</button>
 				<div class="container c-vert c-center">
 					<input type="text" name="newTask" id="newTask" placeholder="Create new Task">
-					<ul id="slider" class="container c-vert c-center-se">
+					<ul id="slider" class="container c-vert">
 						<!--
 						<li class="task container c-center-sb">
 							<div class="container">
