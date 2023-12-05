@@ -54,9 +54,9 @@ function createTask(task, element){
 
     const $btnEdit = document.createElement('button');
 
-    const $iconEdit = document.createElement('i');
-    $iconEdit.classList.add('fa-solid');
-    $iconEdit.classList.add('fa-pen');
+    // const $iconEdit = document.createElement('i');
+    // $iconEdit.classList.add('fa-solid');
+    // $iconEdit.classList.add('fa-pen');
 
     const $btnDelete = document.createElement('button');
     $btnDelete.addEventListener('click', () => {
@@ -76,9 +76,9 @@ function createTask(task, element){
     //Append childs
     $div.appendChild($input);
     $div.appendChild($label);
-    $btnEdit.appendChild($iconEdit);
+    //$btnEdit.appendChild($iconEdit);
     $btnDelete.appendChild($iconDelete);
-    $btnContainer.appendChild($btnEdit);
+    //$btnContainer.appendChild($btnEdit);
     $btnContainer.appendChild($btnDelete);
     $li.appendChild($div);
     $li.appendChild($btnContainer);

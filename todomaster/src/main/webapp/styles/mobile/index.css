@@ -179,12 +179,12 @@ h1 {
     overflow: hidden;
 }
 
-#slider .task > div:last-child {
+/* #slider .task > div:last-child {
     width: 22%;
     margin-left: 0.5rem;
-}
+} */
 
-#slider .task > div:last-child > button:first-child,
+/* #slider .task > div:last-child > button:first-child, */
 #slider .task > div:last-child > button:last-child {
     width: 2rem;
     height: 2rem;
@@ -193,9 +193,9 @@ h1 {
     color: var(--input-font-color);
 }
 
-#slider .task > div:last-child > button:first-child {
+/* #slider .task > div:last-child > button:first-child {
     background-color: var(--button-color);
-}
+} */
 
 #slider .task > div:last-child > button:last-child {
     background-color: var(--delete-button-color);
