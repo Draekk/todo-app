@@ -184,7 +184,8 @@ h1 {
     margin-left: 0.5rem;
 }
 
-#slider #btnEdit, #slider #btnDelete {
+#slider .task > div:last-child > button:first-child,
+#slider .task > div:last-child > button:last-child {
     width: 2rem;
     height: 2rem;
     border-radius: 0.5rem;
@@ -192,11 +193,11 @@ h1 {
     color: var(--input-font-color);
 }
 
-#slider #btnEdit {
+#slider .task > div:last-child > button:first-child {
     background-color: var(--button-color);
 }
 
-#slider #btnDelete {
+#slider .task > div:last-child > button:last-child {
     background-color: var(--delete-button-color);
 }
 

@@ -4,6 +4,7 @@ package com.draekk.todomaster.servlets;
 import com.draekk.todomaster.controllers.GeneralController;
 import com.draekk.todomaster.models.Task;
 import com.draekk.todomaster.models.User;
+import com.draekk.todomaster.persistence.exceptions.NonexistentEntityException;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonArrayBuilder;
@@ -19,6 +20,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebServlet(name = "SvTask", urlPatterns = {"/SvTask"})
 public class SvTask extends HttpServlet {
@@ -102,6 +105,24 @@ public class SvTask extends HttpServlet {
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json");
+        
+        BufferedReader reader = request.getReader();
+        
+        String jsonString = reader.readLine();
+        JsonObject taskJson = Json.createReader(new StringReader(jsonString)).readObject();
+        System.out.println(taskJson.toString());
+        long id = taskJson.getInt("id");
+        
+        try {
+            gc.deleteTask(id);
+            sendTaskDeletedResponse(response);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(SvTask.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            sendFailedResponse(response, "Error on deleting task: " + ex.getMessage());
+        }
     }
     
     @Override
@@ -149,5 +170,16 @@ public class SvTask extends HttpServlet {
         JsonArray taskListJson = arrayBuilder.build();
         
         response.getWriter().write(taskListJson.toString());
+    }
+    
+    private void sendTaskDeletedResponse(HttpServletResponse response)
+        throws IOException {
+        JsonObjectBuilder builder = Json.createObjectBuilder();
+        
+        builder.add("status", HttpServletResponse.SC_ACCEPTED);
+        
+        JsonObject taskJson = builder.build();
+        
+        response.getWriter().println(taskJson.toString());
     }
 }

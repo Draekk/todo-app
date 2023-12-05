@@ -4,6 +4,7 @@ package com.draekk.todomaster.controllers;
 import com.draekk.todomaster.models.Task;
 import com.draekk.todomaster.models.User;
 import com.draekk.todomaster.persistence.PersistenceController;
+import com.draekk.todomaster.persistence.exceptions.NonexistentEntityException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -121,5 +122,11 @@ public class GeneralController {
             }
         }
         return userTaskList;
+    }
+
+    public void deleteTask(long id) throws NonexistentEntityException {
+
+        pc.deleteTask(id);
+
     }
 }

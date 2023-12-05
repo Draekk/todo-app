@@ -53,14 +53,21 @@ function createTask(task, element){
     $btnContainer.classList.add('c-center-sb');
 
     const $btnEdit = document.createElement('button');
-    $btnEdit.id = 'btnEdit';
 
     const $iconEdit = document.createElement('i');
     $iconEdit.classList.add('fa-solid');
     $iconEdit.classList.add('fa-pen');
 
     const $btnDelete = document.createElement('button');
-    $btnDelete.id = 'btnDelete';
+    $btnDelete.addEventListener('click', () => {
+      const result = fetchDelete(task.id)
+      .then(result => {
+        if(result.status >= 200 && result.status < 300){
+          $li.classList.add('inactive');
+        }
+      })
+      .catch(err => console.log(err));
+    })
 
     const $iconDelete = document.createElement('i');
     $iconDelete.classList.add('fa-solid');
@@ -112,4 +119,22 @@ $btnAddTask.addEventListener('click', () => {
 });
 
 
+//-----------------------DELETE TASK
+
+async function fetchDelete(idObject) {
+  try {
+    const object = {id: idObject};
+    const response = await fetch('SvTask', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(object)
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}
 

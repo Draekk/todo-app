@@ -3,6 +3,7 @@ package com.draekk.todomaster.persistence;
 
 import com.draekk.todomaster.models.Task;
 import com.draekk.todomaster.models.User;
+import com.draekk.todomaster.persistence.exceptions.NonexistentEntityException;
 import java.util.List;
 
 public class PersistenceController {
@@ -26,6 +27,10 @@ public class PersistenceController {
 
     public List<Task> getTaskList() {
         return taskJC.findTaskEntities();
+    }
+
+    public void deleteTask(long id) throws NonexistentEntityException {
+        taskJC.destroy(id);
     }
     
 }
