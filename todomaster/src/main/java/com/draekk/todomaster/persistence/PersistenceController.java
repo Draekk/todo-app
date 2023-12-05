@@ -32,5 +32,14 @@ public class PersistenceController {
     public void deleteTask(long id) throws NonexistentEntityException {
         taskJC.destroy(id);
     }
+
+    public boolean completeTask(Task task) {
+        try {
+            taskJC.edit(task);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
     
 }

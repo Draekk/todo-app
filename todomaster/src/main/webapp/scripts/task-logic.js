@@ -52,22 +52,14 @@ function createTask(task, element){
     $btnContainer.classList.add('container');
     $btnContainer.classList.add('c-center-sb');
 
-    const $btnEdit = document.createElement('button');
+    //const $btnEdit = document.createElement('button');
 
     // const $iconEdit = document.createElement('i');
     // $iconEdit.classList.add('fa-solid');
     // $iconEdit.classList.add('fa-pen');
 
     const $btnDelete = document.createElement('button');
-    $btnDelete.addEventListener('click', () => {
-      const result = fetchDelete(task.id)
-      .then(result => {
-        if(result.status >= 200 && result.status < 300){
-          $li.classList.add('inactive');
-        }
-      })
-      .catch(err => console.log(err));
-    })
+    
 
     const $iconDelete = document.createElement('i');
     $iconDelete.classList.add('fa-solid');
@@ -83,6 +75,39 @@ function createTask(task, element){
     $li.appendChild($div);
     $li.appendChild($btnContainer);
     element.appendChild($li);
+
+    //Event listeners
+    $input.addEventListener('input', () => {
+      console.log(task);
+      const result = fetchComplete(task)
+      .then((result) => {
+        if(result.isCompleted){
+          $label.style.textDecoration = 'line-through';
+        } else {
+          $label.style.textDecoration = 'none';
+        }
+      })
+      .catch(err => console.error(err));
+    })
+
+    $btnDelete.addEventListener('click', () => {
+      const result = fetchDelete(task.id)
+      .then(result => {
+        if(result.status >= 200 && result.status < 300){
+          $li.classList.add('inactive');
+        }
+      })
+      .catch(err => console.log(err));
+    })
+
+    //Control structures
+    if(task.isCompleted){
+      $input.checked = true;
+      $label.style.textDecoration = 'line-through';
+    } else {
+      $input.checked = false;
+      $label.style.textDecoration = 'none';
+    }
 }
 
 loadTasks();
@@ -138,3 +163,21 @@ async function fetchDelete(idObject) {
   }
 }
 
+//----------------------COMPLETE TASK
+
+async function fetchComplete(object){
+  try {
+    const response = await fetch('SvTask', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(object)
+    });
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+}

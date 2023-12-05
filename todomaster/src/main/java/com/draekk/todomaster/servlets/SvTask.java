@@ -1,4 +1,3 @@
-
 package com.draekk.todomaster.servlets;
 
 import com.draekk.todomaster.controllers.GeneralController;
@@ -25,7 +24,7 @@ import java.util.logging.Logger;
 
 @WebServlet(name = "SvTask", urlPatterns = {"/SvTask"})
 public class SvTask extends HttpServlet {
-    
+
     GeneralController gc = new GeneralController();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -36,7 +35,7 @@ public class SvTask extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SvTask</title>");            
+            out.println("<title>Servlet SvTask</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet SvTask at " + request.getContextPath() + "</h1>");
@@ -48,15 +47,15 @@ public class SvTask extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        
+
         try {
             response.setCharacterEncoding("UTF-8");
             response.setContentType("application/json");
             System.out.println("saludos desde el doGet");
-            User user = (User)request.getSession().getAttribute("user");
+            User user = (User) request.getSession().getAttribute("user");
             List<Task> taskList = gc.getTaskList(user.getId());
-            
-            if(taskList != null){
+
+            if (taskList != null) {
                 sendTaskListResponse(response, taskList);
             } else {
                 sendFailedResponse(response, "Task list is empty");
@@ -64,32 +63,32 @@ public class SvTask extends HttpServlet {
         } catch (Exception e) {
             sendErrorResponse(response, e);
         }
-        
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        
+
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        
+
         try {
             BufferedReader reader = request.getReader();
             String jsonString = reader.readLine();
             JsonObject json = Json.createReader(new StringReader(jsonString)).readObject();
-        
+
             String description = json.getString("description");
-            User user = (User)request.getSession().getAttribute("user");
-            
+            User user = (User) request.getSession().getAttribute("user");
+
             Task newTask = gc.createTask(description, user);
-            
-            if(newTask != null) {
+
+            if (newTask != null) {
                 sendTaskCreatedResponse(response, newTask);
             } else {
                 sendFailedResponse(response, "Task creation failure");
             }
-            
+
         } catch (Exception e) {
             sendErrorResponse(response, e);
         }
@@ -98,23 +97,49 @@ public class SvTask extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        
+
+        try {
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json");
+
+            BufferedReader reader = request.getReader();
+            String jsonString = reader.readLine();
+            JsonObject json = Json.createReader(new StringReader(jsonString)).readObject();
+
+            long id = json.getInt("id");
+            String description = json.getString("description");
+            boolean isCompleted = json.getBoolean("isCompleted");
+
+            User user = (User) request.getSession().getAttribute("user");
+
+            Task editTask = new Task(id, description, !isCompleted, user);
+
+            boolean taskEdited = gc.completeTask(editTask);
+
+            if (taskEdited) {
+                sendTaskCreatedResponse(response, editTask);
+            } else {
+                sendFailedResponse(response, "Error editing task");
+            }
+        } catch (Exception e) {
+            sendErrorResponse(response, e);
+        }
     }
-    
+
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        
+
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        
+
         BufferedReader reader = request.getReader();
-        
+
         String jsonString = reader.readLine();
         JsonObject taskJson = Json.createReader(new StringReader(jsonString)).readObject();
         System.out.println(taskJson.toString());
         long id = taskJson.getInt("id");
-        
+
         try {
             gc.deleteTask(id);
             sendTaskDeletedResponse(response);
@@ -124,7 +149,7 @@ public class SvTask extends HttpServlet {
             sendFailedResponse(response, "Error on deleting task: " + ex.getMessage());
         }
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";
@@ -133,34 +158,34 @@ public class SvTask extends HttpServlet {
     private void sendTaskCreatedResponse(HttpServletResponse response, Task newTask)
         throws IOException {
         JsonObjectBuilder builder = Json.createObjectBuilder();
-        
+
         builder.add("id", newTask.getId());
         builder.add("description", newTask.getDescription());
         builder.add("isCompleted", newTask.isIsCompleted());
-        
+
         JsonObject taskJson = builder.build();
-        
+
         response.setStatus(HttpServletResponse.SC_CREATED);
         response.getWriter().println(taskJson.toString());
     }
-    
+
     private void sendFailedResponse(HttpServletResponse response, String message)
         throws IOException {
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         response.getWriter().println(message);
     }
-    
+
     private void sendErrorResponse(HttpServletResponse response, Exception e)
         throws IOException {
         response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         response.getWriter().println("Error: " + e.getMessage());
     }
-    
+
     private void sendTaskListResponse(HttpServletResponse response, List<Task> taskList)
         throws IOException {
         JsonObjectBuilder builder = Json.createObjectBuilder();
         JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-        for(Task t : taskList) {
+        for (Task t : taskList) {
             builder.add("id", t.getId());
             builder.add("description", t.getDescription());
             builder.add("isCompleted", t.isIsCompleted());
@@ -168,18 +193,18 @@ public class SvTask extends HttpServlet {
             arrayBuilder.add(taskJson);
         }
         JsonArray taskListJson = arrayBuilder.build();
-        
+
         response.getWriter().write(taskListJson.toString());
     }
-    
+
     private void sendTaskDeletedResponse(HttpServletResponse response)
         throws IOException {
         JsonObjectBuilder builder = Json.createObjectBuilder();
-        
+
         builder.add("status", HttpServletResponse.SC_ACCEPTED);
-        
+
         JsonObject taskJson = builder.build();
-        
+
         response.getWriter().println(taskJson.toString());
     }
 }

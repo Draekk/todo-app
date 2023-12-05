@@ -129,4 +129,8 @@ public class GeneralController {
         pc.deleteTask(id);
 
     }
+    
+    public boolean completeTask(Task task){
+        return pc.completeTask(task);
+    }
 }
