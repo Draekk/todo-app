@@ -1,5 +1,5 @@
-application = todomaster
-version = 1.0.0-SNAPSHOT
+application = "todomaster"
+version = "1.0.0-SNAPSHOT"
 port = 8080
-database = railway
-connection = postgresql://postgres:E*bAgFg3FcE5aaCbEe3bDe-E*efcEg4A@monorail.proxy.rlwy.net:32742/railway
+database = "railway"
+connection = "postgresql://postgres:E*bAgFg3FcE5aaCbEe3bDe-E*efcEg4A@monorail.proxy.rlwy.net:32742/railway"
