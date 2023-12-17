@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/mobile/register.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>ToDo Master - Register</title>
+  </head>
+  <body>
+    <main class="container c-vert c-center-se">
+      <h1>TODO MASTER</h1>
+      <section id="main-container" class="container c-vert c-center">
+        <h2>Join us!</h2>
+        <form action="SvUserRegister" method="POST" class="container c-vert">
+          <label for="inputName"></label>
+          <input
+            type="text"
+            id="inputName"
+            name="name"
+            placeholder="First name"
+          />
+          <label for="inputLastName"></label>
+          <input
+            type="text"
+            id="inputLastName"
+            name="lastName"
+            placeholder="Last name"
+          />
+          <label for="inputEmail"></label>
+          <input
+            type="email"
+            id="inputEmail"
+            name="email"
+            placeholder="Email"
+          />
+          <label for="inputUsername"></label>
+          <input
+            type="text"
+            id="inputUsername"
+            name="username"
+            placeholder="Username"
+          />
+          <label for="inputPassword" class="container"></label>
+						<input
+							type="password"
+							id="inputPassword"
+							name="password"
+							placeholder="Password"
+						/>
+						<label for="inputPasswordRepeat" class="container"></label>
+						<input
+						type="password"
+						id="inputPasswordRepeat"
+						name="passwordRepeat"
+						placeholder="Repeat password"
+						/>
+						<input type="submit" id="btnSubmit" value="Register" />
+						<div class="container">
+							<div class="container c-vert">
+								<i title="show password" class="showP ico fa-solid fa-eye"></i>
+								<i title="hide password" class=" hideP inactive ico fa-solid fa-eye-slash"></i>
+							</div>
+							<div class="container c-vert">
+								<i title="show password" class="showPR ico fa-solid fa-eye"></i>
+								<i title="hide password" class=" hidePR inactive ico fa-solid fa-eye-slash"></i>
+							</div>
+						</div>
+					</form>
+        <div class="line-80"></div>
+        <a href="login.html">Do you have an account? Sign in!</a>
+      </section>
+    </main>
+  </body>
+  <script
+    src="https://kit.fontawesome.com/4dba61bd48.js"
+    crossorigin="anonymous"
+  ></script>
+	<script src="./scripts/show-hide-password.js"></script>
+  <script src="./scripts/register.js"></script>
+</html>
