@@ -1,0 +1,17 @@
+com\draekk\todomaster\controllers\GeneralController.class
+com\draekk\todomaster\persistence\exceptions\PreexistingEntityException.class
+com\draekk\todomaster\persistence\exceptions\IllegalOrphanException.class
+com\draekk\todomaster\servlets\SvLogout.class
+com\draekk\todomaster\servlets\SvUserRegister.class
+com\draekk\todomaster\JakartaRestConfiguration.class
+com\draekk\todomaster\models\User.class
+com\draekk\todomaster\persistence\TaskJpaController.class
+com\draekk\todomaster\resources\JakartaEE10Resource.class
+com\draekk\todomaster\servlets\SvTask.class
+com\draekk\todomaster\persistence\UserJpaController.class
+com\draekk\todomaster\persistence\exceptions\NonexistentEntityException.class
+com\draekk\todomaster\models\User_.class
+com\draekk\todomaster\models\Task.class
+com\draekk\todomaster\servlets\SvLogin.class
+com\draekk\todomaster\persistence\PersistenceController.class
+com\draekk\todomaster\models\Task_.class

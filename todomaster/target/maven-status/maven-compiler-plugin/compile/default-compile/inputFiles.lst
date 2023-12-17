@@ -1,0 +1,15 @@
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\resources\JakartaEE10Resource.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\persistence\exceptions\IllegalOrphanException.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\servlets\SvLogin.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\servlets\SvUserRegister.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\controllers\GeneralController.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\models\User.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\persistence\exceptions\PreexistingEntityException.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\servlets\SvLogout.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\persistence\TaskJpaController.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\persistence\UserJpaController.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\models\Task.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\persistence\exceptions\NonexistentEntityException.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\persistence\PersistenceController.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\servlets\SvTask.java
+C:\Users\asahi\OneDrive\Documentos\programacion\porfolio-projects\todo-app\todo-master\todomaster\src\main\java\com\draekk\todomaster\JakartaRestConfiguration.java
